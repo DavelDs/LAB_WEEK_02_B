@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.Button
+
 
 class ResultActivity : AppCompatActivity() {
     companion object {
@@ -31,10 +33,15 @@ class ResultActivity : AppCompatActivity() {
                     finish()
                 }
             }
-            val resultMessage =
-                findViewById<TextView>(R.id.color_code_result_message)
+            val resultMessage = findViewById<TextView>(R.id.color_code_result_message)
             resultMessage.text = getString(R.string.color_code_result_message,
                 colorCode?.uppercase())
+
+            val backButton = findViewById<Button>(R.id.back_button)
+            backButton.setOnClickListener {
+                finish() // Menutup ResultActivity dan kembali ke MainActivity
+            }
+
         }
     }
 }
